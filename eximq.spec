@@ -1,7 +1,8 @@
 %include        /usr/lib/rpm/macros.perl
 Summary:	Supervising process for Exim's queue runners
 Name:		eximq
-Version:	0
+# look into eximq.pl
+Version:	0.4
 # date of eximq file edit
 Release:	0.20041227.1
 License:	GPL
