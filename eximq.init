@@ -34,7 +34,7 @@ case "$1" in
 		grep -v -e '^[[:space:]]*$' -e '^#' $EXIMQ_CONFIG | while read args; do
 			n=$(printf '%02d' $(($n+1)))
 			msg_starting "eximq $n daemon"
-			daemon --user exim --makepid --pidfile /var/run/eximq.$n.pid --fork /usr/sbin/eximq.pl $args
+			daemon --user exim /usr/sbin/eximq.pl --pidfile /var/run/eximq/eximq.$n.pid --daemon $args
 			RETVAL=$?
 		done
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/eximq
@@ -49,7 +49,7 @@ case "$1" in
 		grep -v -e '^[[:space:]]*$' -e '^#' $EXIMQ_CONFIG | while read args; do
 			n=$(printf '%02d' $(($n+1)))
 			msg_stopping "eximq $n daemon"
-			killproc --pidfile /var/run/eximq.$n.pid eximq.pl
+			killproc --pidfile /var/run/eximq/eximq.$n.pid eximq.pl
 		done
 		rm -f /var/lock/subsys/eximq >/dev/null 2>&1
 	else
