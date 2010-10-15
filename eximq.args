@@ -6,6 +6,6 @@
 0s 1m 5s 10
 1m 2m 15s 10
 2m 5m 30s 10
-5m 15m 1m 5 /usr/sbin/exim -qq
-15m 2h 2m 5 /usr/sbin/exim -qq
-2h inf 5m 5 /usr/sbin/exim -qq
+5m 15m 1m 5 /usr/bin/exim -qq
+15m 2h 2m 5 /usr/bin/exim -qq
+2h inf 5m 5 /usr/bin/exim -qq
