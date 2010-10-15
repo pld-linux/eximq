@@ -3,9 +3,9 @@
 # Format:
 #   <agemin> <agemax> <interval> <processmax> [<exim_q_command>]
 
-0s 1m 5s 10
-1m 2m 15s 10
-2m 5m 30s 10
+0s 1m 5s 10 /usr/bin/exim -q
+1m 2m 15s 10 /usr/bin/exim -q
+2m 5m 30s 10 /usr/bin/exim -q
 5m 15m 1m 5 /usr/bin/exim -qq
 15m 2h 2m 5 /usr/bin/exim -qq
 2h inf 5m 5 /usr/bin/exim -qq
