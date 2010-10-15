@@ -12,7 +12,7 @@ Source1:	%{name}.args
 Source2:	%{name}.init
 URL:		http://eximconf.alioth.debian.org/
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires:	exim
+Requires:	exim >= 2:4.00
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
