@@ -11,6 +11,7 @@ Group:		Applications/Mail
 Source0:	%{name}.pl
 Source1:	%{name}.args
 Source2:	%{name}.init
+Source3:	%{name}.tmpfiles
 URL:		http://eximconf.alioth.debian.org/
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	exim >= 2:4.00
@@ -26,11 +27,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,mail},%{_sbindir},/var/run/eximq}
+install -d $RPM_BUILD_ROOT{/etc/{rc.d/init.d,mail},%{_sbindir},/var/run/eximq} \
+	$RPM_BUILD_ROOT/usr/lib/tmpfiles.d
 
 install %{SOURCE0} $RPM_BUILD_ROOT%{_sbindir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/mail/eximq.args
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/rc.d/init.d/%{name}
+install %{SOURCE3} $RPM_BUILD_ROOT/usr/lib/tmpfiles.d/%{name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -50,4 +53,5 @@ fi
 %attr(755,root,root) %{_sbindir}/eximq.pl
 %attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mail/%{name}.args
 %attr(754,root,root) /etc/rc.d/init.d/%{name}
+/usr/lib/tmpfiles.d/%{name}.conf
 %attr(755,exim,root) /var/run/eximq
