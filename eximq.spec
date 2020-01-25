@@ -1,4 +1,3 @@
-%include        /usr/lib/rpm/macros.perl
 Summary:	Supervising process for Exim's queue runners
 Name:		eximq
 # look into eximq.pl
